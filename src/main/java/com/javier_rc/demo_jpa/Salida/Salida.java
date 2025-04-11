@@ -2,14 +2,27 @@ package com.javier_rc.demo_jpa.Salida;
 
 import java.time.LocalDateTime;
 
+import com.javier_rc.demo_jpa.Usuario.Usuario;
+
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+@Entity
 public class Salida {
 
     @Id
@@ -24,4 +37,7 @@ public class Salida {
     @NotBlank(message = "El destino no puede estar vacío")
     @Size(max = 50, message = "El destino no puede exceder los 50 caracteres")
     private String destino;
+
+    @ManyToOne
+    private Usuario usuario;
 }

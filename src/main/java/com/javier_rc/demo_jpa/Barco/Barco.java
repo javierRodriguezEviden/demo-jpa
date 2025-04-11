@@ -1,9 +1,12 @@
 package com.javier_rc.demo_jpa.Barco;
 
+import com.javier_rc.demo_jpa.Usuario.Usuario;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -43,4 +46,7 @@ public class Barco {
 
     @NotNull(message = "El campo cuota no puede ser nulo")
     private int cuota;
+
+    @ManyToOne
+    private Usuario usuario;
 }

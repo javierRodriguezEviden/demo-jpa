@@ -1,9 +1,15 @@
 package com.javier_rc.demo_jpa.Usuario;
 
+import java.util.List;
+
+import com.javier_rc.demo_jpa.Barco.Barco;
+import com.javier_rc.demo_jpa.Salida.Salida;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -55,4 +61,12 @@ public class Usuario {
 
     @NotNull(message = "El campo socio no puede ser nulo")
     private Boolean socio;
+
+    
+    @OneToMany(mappedBy = "usuario")
+    private List<Barco> barcos;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<Salida> salidas;
+
 }
