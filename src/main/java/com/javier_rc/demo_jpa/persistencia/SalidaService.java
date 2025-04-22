@@ -17,4 +17,20 @@ public class SalidaService {
         salidaRepo.save(salida);
     }
 
+    public void updateSalida(Integer id, Salida salidaData) {
+        Salida salida = salidaRepo.findById(id)
+        .orElseThrow(() -> new RuntimeException("Salida no encontrada con id: " + id));
+
+        // Sobrescribir el usuario completo
+        salidaData.setId(salida.getId()); // Asegúrate de mantener el mismo ID
+        salidaRepo.save(salidaData);
+    }
+    
+    public void deleteSalida(Integer id) {
+        Salida salida = salidaRepo.findById(id)
+        .orElseThrow(() -> new RuntimeException("Salida no encontrada con id: " + id));
+
+        salidaRepo.delete(salida);
+    }
+
 }

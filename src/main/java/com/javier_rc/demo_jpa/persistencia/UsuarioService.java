@@ -17,7 +17,6 @@ public class UsuarioService {
         usuarioRepo.save(usuario);
     }
 
-    
     public void updateUsuario(Integer id, Usuario usuarioData) {
         Usuario usuario = usuarioRepo.findById(id)
         .orElseThrow(() -> new RuntimeException("Usuario no encontrado con id: " + id));
@@ -26,7 +25,6 @@ public class UsuarioService {
         usuarioData.setId(usuario.getId()); // Asegúrate de mantener el mismo ID
         usuarioRepo.save(usuarioData);
     }
-    
     
     public void deleteUsuario(Integer id) {
         Usuario usuario = usuarioRepo.findById(id)

@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
-
 @RestController
 @RequestMapping("/usuario")
 @RequiredArgsConstructor
@@ -27,7 +26,6 @@ public class UsuarioController {
         usuarioService.createUsuario(usuario);
     }
 
-    
     @PutMapping("/{id}")
         public void updateUsuario(@PathVariable Integer id, @RequestBody Usuario usuarioData) {
             usuarioService.updateUsuario(id, usuarioData);
